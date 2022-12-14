@@ -37,6 +37,6 @@ public class UpdatePerson {
         personJpa.sex = personDTO.sex;
         personJpa.birthday = personDTO.birthday;
 
-        return new Response(true, "Persona registrada exitosamente", personJpa);
+        return new Response(true, "Persona actualizada exitosamente", personJpa);
     }
 }
