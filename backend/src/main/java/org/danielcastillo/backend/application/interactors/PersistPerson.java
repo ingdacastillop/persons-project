@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class RegisterPerson {
+public class PersistPerson {
     @Autowired
     private CheckBirthdayPerson checkBirthdayPerson;
     @Autowired
