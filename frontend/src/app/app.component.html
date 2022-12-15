@@ -1,16 +1,20 @@
-<xft-datatable class="xft-datatable--overflow-hidden">
-  <thead title class="xft-datatable__thead">
-    <tr class="xft-datatable__title">
-      <th class="xft-datatable__th col-sm-37-5">Nombre</th>
-      <th class="xft-datatable__th col-sm-20 align-center">Prefijo</th>
-      <th class="xft-datatable__th col-sm-20 align-center">Longitud</th>
-      <th class="xft-datatable__th col-sm-22-5 align-right">Registro</th>
-    </tr>
-  </thead>
-
-  <tbody body class="xft-datatable__tbody">
-  </tbody>
-
-  <div footer class="xft-datatable__footer">
+<div class="xft-app__body">
+  <div class="xft-app__header">
+    <xft-toolbar>
+      <span>Catálogo de personas</span>
+    </xft-toolbar>
   </div>
-</xft-datatable>
+
+  <div class="xft-app__content">
+    <div class="app-root_content">
+      <div class="app-root_persons">
+        <card-person *ngFor="let person of persons" [person]="person">
+        </card-person>
+      </div>
+
+      <div class="app-root_form">
+        <form-person></form-person>
+      </div>
+    </div>
+  </div>
+</div>

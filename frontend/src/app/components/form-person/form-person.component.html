@@ -1,0 +1,64 @@
+<div class="xft-form">
+  <div class="xft-form__fields">
+    <xft-text-field [inputControl]="formControl.dni" [enabled]="!person">
+      DNI<span>*</span>
+    </xft-text-field>
+
+    <xft-text-field class="col-sm-50" [inputControl]="formControl.firstName">
+      Nombres<span>*</span>
+    </xft-text-field>
+
+    <xft-text-field class="col-sm-50" [inputControl]="formControl.lastName">
+      Apellidos<span>*</span>
+    </xft-text-field>
+
+    <xft-text-field [inputControl]="formControl.address">
+      Direccion
+    </xft-text-field>
+
+    <xft-text-field class="col-sm-50" [inputControl]="formControl.phone">
+      Telefono
+    </xft-text-field>
+
+    <xft-date-field class="col-sm-50" [formControl]="formControl.birthday">
+      Cumpleaños<span>*</span>
+    </xft-date-field>
+
+    <xft-text-field [inputControl]="formControl.email"> Correo </xft-text-field>
+
+    <xft-text-field [inputControl]="formControl.hobbies">
+      Hobbies
+    </xft-text-field>
+  </div>
+
+  <div class="xft-form__footer">
+    <button
+      xft-button="raised"
+      class="col-sm-40"
+      *ngIf="!person"
+      (click)="onRegister()"
+      [disabled]="formControl.invalid"
+    >
+      <span>Registrar</span>
+    </button>
+
+    <button
+      xft-button="raised"
+      class="col-sm-40"
+      (click)="onUpdate()"
+      *ngIf="person"
+      [disabled]="formControl.invalid"
+    >
+      <span>Actualizar</span>
+    </button>
+
+    <button
+      xft-button="raised"
+      class="col-sm-40"
+      xftTheme="danger"
+      (click)="onCancel()"
+    >
+      <span>Cancelar</span>
+    </button>
+  </div>
+</div>

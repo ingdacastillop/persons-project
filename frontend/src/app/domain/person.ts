@@ -1,14 +1,20 @@
-export type Sex = 'hombre' | 'mujer';
+import { Sex } from './person-type';
 
-export interface Person {
-  uuid?: string;
-  dni: string;
-  firsName: string;
-  lastName: string;
-  address?: string;
-  phone?: string;
-  email?: string;
-  sex: Sex;
-  hobbies?: string;
-  birthday: Date;
+export class Person {
+  constructor(
+    public readonly uuid: string,
+    public readonly dni: string,
+    public readonly firstName: string,
+    public readonly lastName: string,
+    public readonly sex: Sex,
+    public readonly birthday: Date,
+    public readonly hobbies?: string,
+    public readonly address?: string,
+    public readonly phone?: string,
+    public readonly email?: string
+  ) {}
+
+  public get fullName(): string {
+    return `${this.firstName} ${this.lastName}`;
+  }
 }
