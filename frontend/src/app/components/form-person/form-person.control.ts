@@ -1,24 +1,65 @@
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { required } from '@xofttion-enterprise/angular-components';
+import { Person } from 'src/app/domain/person';
 
-export class FormPersonControl {
-  public dni: FormControl;
-  public firstName: FormControl;
-  public lastName: FormControl;
-  public address: FormControl;
-  public phone: FormControl;
-  public email: FormControl;
-  public hobbies: FormControl;
-  public birthday: FormControl;
+export class FormPersonControl extends FormGroup {
+  constructor(maxDate: Date) {
+    super({
+      dni: new FormControl(null, [required]),
+      firstName: new FormControl(null, [required]),
+      lastName: new FormControl(null, [required]),
+      address: new FormControl(null, []),
+      phone: new FormControl(null, []),
+      email: new FormControl(null, []),
+      hobbies: new FormControl(null, []),
+      birthday: new FormControl(maxDate, [required]),
+    });
+  }
 
-  constructor() {
-    this.dni = new FormControl(null, [required]);
-    this.firstName = new FormControl(null, [required]);
-    this.lastName = new FormControl(null, [required]);
-    this.address = new FormControl(null, []);
-    this.phone = new FormControl(null, []);
-    this.email = new FormControl(null, []);
-    this.hobbies = new FormControl(null, []);
-    this.birthday = new FormControl(null, [required]);
+  public get dni(): FormControl {
+    return this.get('dni') as FormControl;
+  }
+
+  public get firstName(): FormControl {
+    return this.get('firstName') as FormControl;
+  }
+
+  public get lastName(): FormControl {
+    return this.get('lastName') as FormControl;
+  }
+
+  public get address(): FormControl {
+    return this.get('address') as FormControl;
+  }
+
+  public get phone(): FormControl {
+    return this.get('phone') as FormControl;
+  }
+
+  public get email(): FormControl {
+    return this.get('email') as FormControl;
+  }
+
+  public get hobbies(): FormControl {
+    return this.get('hobbies') as FormControl;
+  }
+
+  public get birthday(): FormControl {
+    return this.get('birthday') as FormControl;
+  }
+
+  public createPerson(): Person {
+    return new Person(
+      '',
+      this.dni.value,
+      this.firstName.value,
+      this.lastName.value,
+      'hombre',
+      this.birthday.value,
+      this.hobbies.value,
+      this.address.value,
+      this.phone.value,
+      this.email.value
+    );
   }
 }

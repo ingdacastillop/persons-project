@@ -8,11 +8,8 @@
   <div class="xft-app__content">
     <div class="app-root_content">
       <div class="app-root_persons">
-        <card-person></card-person>
-        <card-person></card-person>
-        <card-person></card-person>
-        <card-person></card-person>
-        <card-person></card-person>
+        <card-person *ngFor="let person of persons" [person]="person">
+        </card-person>
       </div>
 
       <div class="app-root_form">

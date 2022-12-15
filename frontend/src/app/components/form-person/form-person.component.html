@@ -32,6 +32,13 @@
   </div>
 
   <div class="xft-form__footer">
-    <button xft-button="raised" class="col-sm">Registrar nueva persona</button>
+    <button
+      xft-button="raised"
+      class="col-sm"
+      (click)="onSubmit()"
+      [disabled]="formControl.invalid"
+    >
+      <span>Registrar nueva persona</span>
+    </button>
   </div>
 </div>
