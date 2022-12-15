@@ -1,0 +1,20 @@
+<div class="xft-app__body">
+  <div class="xft-app__header">
+    <xft-toolbar>
+      <span>Catálogo de personas</span>
+    </xft-toolbar>
+  </div>
+
+  <div class="xft-app__content">
+    <div class="app-root_content">
+      <div class="app-root_persons">
+        <card-person *ngFor="let person of persons" [person]="person">
+        </card-person>
+      </div>
+
+      <div class="app-root_form">
+        <form-person></form-person>
+      </div>
+    </div>
+  </div>
+</div>

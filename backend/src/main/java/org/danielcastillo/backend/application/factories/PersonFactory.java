@@ -16,6 +16,7 @@ public class PersonFactory {
         personJpa.phone = personDTO.phone;
         personJpa.email = personDTO.email;
         personJpa.hobbies = personDTO.hobbies;
+        personJpa.sex = personDTO.sex;
         personJpa.birthday = personDTO.birthday;
 
         return personJpa;
