@@ -24,7 +24,7 @@ public class UpdatePerson {
         var optional = personRepository.findByUuid(uuid);
 
         if (optional.isEmpty()) {
-            return new Response(false, "Persona no encontrada", null);
+            return new Response(false, "Persona no fue encontrada en la Plataforma", null);
         }
 
         var personJpa = optional.get();
@@ -37,6 +37,8 @@ public class UpdatePerson {
         personJpa.sex = personDTO.sex;
         personJpa.birthday = personDTO.birthday;
 
-        return new Response(true, "Persona actualizada exitosamente", personJpa);
+        String fullName = personJpa.firstName + " " + personJpa.lastName;
+
+        return new Response(true, fullName + " fue actualizado(a) exitosamente en la Plataforma", personJpa);
     }
 }

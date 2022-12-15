@@ -2,6 +2,7 @@ package org.danielcastillo.backend;
 
 import org.danielcastillo.backend.application.PersonDTO;
 import org.danielcastillo.backend.application.Response;
+import org.danielcastillo.backend.application.interactors.DestroyPerson;
 import org.danielcastillo.backend.application.interactors.GetAllPerson;
 import org.danielcastillo.backend.application.interactors.PersistPerson;
 import org.danielcastillo.backend.application.interactors.UpdatePerson;
@@ -19,6 +20,8 @@ public class PersonController {
     private GetAllPerson getAllPerson;
     @Autowired
     private UpdatePerson updatePerson;
+    @Autowired
+    private DestroyPerson destroyPerson;
 
     @PostMapping("/persons")
     public Response persist(@RequestBody PersonDTO person) {
@@ -33,5 +36,10 @@ public class PersonController {
     @PutMapping("/persons/{uuid}")
     public Response update(@PathVariable String uuid, @RequestBody PersonDTO person) {
         return updatePerson.execute(uuid, person);
+    }
+
+    @DeleteMapping("/persons/{uuid}")
+    public Response destroy(@PathVariable String uuid) {
+        return destroyPerson.execute(uuid);
     }
 }

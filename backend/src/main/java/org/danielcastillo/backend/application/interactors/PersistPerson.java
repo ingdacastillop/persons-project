@@ -26,6 +26,8 @@ public class PersistPerson {
 
         personRepository.persist(personJpa);
 
-        return new Response(true, "Persona registrada exitosamente", personJpa);
+        String fullName = personJpa.firstName + " " + personJpa.lastName;
+
+        return new Response(true, fullName + " fue registrado(a) exitosamente en la Plataforma", personJpa);
     }
 }
