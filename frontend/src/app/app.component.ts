@@ -11,11 +11,21 @@ import { PersonRepositoty } from './infrastructure/person.repository';
 export class AppComponent implements OnInit {
   public persons: Person[] = [];
 
+  public visible = false;
+
   constructor(private repository: PersonRepositoty) {}
 
   public ngOnInit(): void {
     this.repository.fetch().subscribe((persons) => {
       this.persons = persons;
     });
+  }
+
+  public openPerson(): void {
+    this.visible = true;
+  }
+
+  public closePerson(): void {
+    this.visible = false;
   }
 }

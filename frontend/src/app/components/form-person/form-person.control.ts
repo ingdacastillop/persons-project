@@ -1,16 +1,17 @@
 import { FormControl, FormGroup } from '@angular/forms';
-import { required } from '@xofttion-enterprise/angular-components';
-import { Person } from 'src/app/domain/person';
+import { email, required } from '@xofttion-enterprise/angular-components';
+import { Person } from '../../domain/person';
 
 export class FormPersonControl extends FormGroup {
   constructor(maxDate: Date) {
     super({
       dni: new FormControl(null, [required]),
+      sex: new FormControl(null, [required]),
       firstName: new FormControl(null, [required]),
       lastName: new FormControl(null, [required]),
       address: new FormControl(null, []),
       phone: new FormControl(null, []),
-      email: new FormControl(null, []),
+      email: new FormControl(null, [email]),
       hobbies: new FormControl(null, []),
       birthday: new FormControl(maxDate, [required]),
     });
@@ -18,6 +19,10 @@ export class FormPersonControl extends FormGroup {
 
   public get dni(): FormControl {
     return this.get('dni') as FormControl;
+  }
+
+  public get sex(): FormControl {
+    return this.get('sex') as FormControl;
   }
 
   public get firstName(): FormControl {
@@ -50,6 +55,7 @@ export class FormPersonControl extends FormGroup {
 
   public changePerson(person: Person): void {
     this.dni.setValue(person.dni);
+    this.sex.setValue(person.sex);
     this.firstName.setValue(person.firstName);
     this.lastName.setValue(person.lastName);
     this.address.setValue(person.address);
@@ -65,7 +71,7 @@ export class FormPersonControl extends FormGroup {
       this.dni.value,
       this.firstName.value,
       this.lastName.value,
-      'hombre',
+      this.sex.value,
       this.birthday.value,
       this.hobbies.value,
       this.address.value,

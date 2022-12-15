@@ -7,13 +7,29 @@
 
   <div class="xft-app__content">
     <div class="app-root_content">
-      <div class="app-root_persons">
-        <card-person *ngFor="let person of persons" [person]="person">
+      <div class="app-root_persons" [class.visible]="!visible">
+        <div class="app-root_empty" *ngIf="!persons.length">
+          <img src="assets/empty-person.jpg" />
+        </div>
+
+        <button
+          xft-button="raised"
+          class="app-root_register col-sm"
+          (click)="openPerson()"
+        >
+          Registrar nueva persona
+        </button>
+
+        <card-person
+          *ngFor="let person of persons"
+          [person]="person"
+          (openForm)="openPerson()"
+        >
         </card-person>
       </div>
 
-      <div class="app-root_form">
-        <form-person></form-person>
+      <div class="app-root_form" [class.visible]="visible">
+        <form-person (closeForm)="closePerson()"></form-person>
       </div>
     </div>
   </div>

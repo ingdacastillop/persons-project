@@ -3,8 +3,26 @@
     position: relative;
     float: left;
     width: 100%;
+    height: 100%;
     padding: var(--size-12) var(--size-8);
     box-sizing: border-box;
+    overflow: auto;
+  }
+
+  &_empty {
+    position: relative;
+    float: left;
+    width: 100%;
+    display: flex;
+
+    img {
+      max-width: 100%;
+      margin: auto;
+    }
+  }
+
+  &_register {
+    display: none;
   }
 
   &_persons {
@@ -15,6 +33,8 @@
     flex-wrap: wrap;
 
     card-person {
+      position: relative;
+      float: left;
       padding: var(--size-8);
       box-sizing: border-box;
       width: 33.33%;
@@ -27,5 +47,55 @@
     width: 30%;
     padding: 0rem var(--size-8);
     box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .app-root {
+    &_persons {
+      width: 60%;
+
+      card-person {
+        width: 50%;
+      }
+    }
+
+    &_form {
+      width: 40%;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .app-root {
+    &_persons {
+      width: 100%;
+      display: none;
+
+      &.visible {
+        display: block;
+      }
+
+      card-person {
+        width: 100%;
+
+        & + card-person {
+          margin-top: var(--size-8);
+        }
+      }
+    }
+
+    &_register {
+      display: block;
+    }
+
+    &_form {
+      width: 100%;
+      display: none;
+
+      &.visible {
+        display: block;
+      }
+    }
   }
 }
