@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { ToolbarComponentModule } from '@xofttion-enterprise/angular-components';
+import {
+  ButtonComponentModule,
+  ToolbarComponentModule,
+} from '@xofttion-enterprise/angular-components';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +17,7 @@ import { ComponentsModule } from './components/components.module';
     HttpClientModule,
     AppRoutingModule,
     ToolbarComponentModule,
+    ButtonComponentModule,
     ComponentsModule,
   ],
   providers: [],

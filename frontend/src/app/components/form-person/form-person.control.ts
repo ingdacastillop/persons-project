@@ -1,6 +1,6 @@
 import { FormControl, FormGroup } from '@angular/forms';
-import { required } from '@xofttion-enterprise/angular-components';
-import { Person } from 'src/app/domain/person';
+import { email, required } from '@xofttion-enterprise/angular-components';
+import { Person } from '../../domain/person';
 
 export class FormPersonControl extends FormGroup {
   constructor(maxDate: Date) {
@@ -11,7 +11,7 @@ export class FormPersonControl extends FormGroup {
       lastName: new FormControl(null, [required]),
       address: new FormControl(null, []),
       phone: new FormControl(null, []),
-      email: new FormControl(null, []),
+      email: new FormControl(null, [email]),
       hobbies: new FormControl(null, []),
       birthday: new FormControl(maxDate, [required]),
     });

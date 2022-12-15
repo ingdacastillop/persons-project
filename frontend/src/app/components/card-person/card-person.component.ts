@@ -1,4 +1,10 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewEncapsulation,
+} from '@angular/core';
 import {
   PopupComponentService,
   SnackbarComponentService,
@@ -16,15 +22,22 @@ export class CardPersonComponent {
   @Input()
   public person?: Person;
 
+  @Output()
+  public openForm: EventEmitter<boolean>;
+
   constructor(
     private repository: PersonRepositoty,
     private popup: PopupComponentService,
     private snackbar: SnackbarComponentService
-  ) {}
+  ) {
+    this.openForm = new EventEmitter();
+  }
 
   public onSelect(): void {
     if (this.person) {
       this.repository.select(this.person);
+
+      this.openForm.emit(true);
     }
   }
 

@@ -46,7 +46,7 @@
   <div class="xft-form__footer">
     <button
       xft-button="raised"
-      class="col-sm-40"
+      class="col-sm col-md-40"
       *ngIf="!person"
       (click)="onRegister()"
       [disabled]="formControl.invalid"
@@ -56,7 +56,7 @@
 
     <button
       xft-button="raised"
-      class="col-sm-40"
+      class="col-sm col-md-40"
       (click)="onUpdate()"
       *ngIf="person"
       [disabled]="formControl.invalid"
@@ -66,7 +66,7 @@
 
     <button
       xft-button="raised"
-      class="col-sm-40"
+      class="col-sm col-md-40"
       xftTheme="danger"
       (click)="onCancel()"
     >
