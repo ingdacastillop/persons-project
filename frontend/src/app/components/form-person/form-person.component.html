@@ -1,14 +1,26 @@
 <div class="xft-form">
   <div class="xft-form__fields">
-    <xft-text-field [inputControl]="formControl.dni" [enabled]="!person">
+    <xft-text-field
+      class="col-sm-50"
+      [inputControl]="formControl.dni"
+      [enabled]="!person"
+    >
       DNI<span>*</span>
     </xft-text-field>
 
-    <xft-text-field class="col-sm-50" [inputControl]="formControl.firstName">
+    <xft-select-field
+      class="col-sm-50"
+      [suggestions]="sexs"
+      [formControl]="formControl.sex"
+    >
+      Sexo<span>*</span>
+    </xft-select-field>
+
+    <xft-text-field [inputControl]="formControl.firstName">
       Nombres<span>*</span>
     </xft-text-field>
 
-    <xft-text-field class="col-sm-50" [inputControl]="formControl.lastName">
+    <xft-text-field [inputControl]="formControl.lastName">
       Apellidos<span>*</span>
     </xft-text-field>
 

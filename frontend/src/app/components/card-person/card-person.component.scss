@@ -3,6 +3,7 @@
     position: relative;
     float: left;
     width: 100%;
+    display: flex;
     padding: var(--size-12);
     box-sizing: border-box;
     border: 1px solid var(--color-light-100);
@@ -17,6 +18,12 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+  }
+
+  &_data {
+    position: relative;
+    float: left;
+    min-width: calc(100% - var(--size-32));
   }
 
   &_title {
@@ -34,5 +41,13 @@
 
   &_detail {
     color: var(--color-dark-700);
+  }
+
+  &_action {
+    margin: auto 0rem auto var(--size-8);
+
+    &:hover {
+      color: var(--color-danger-900);
+    }
   }
 }

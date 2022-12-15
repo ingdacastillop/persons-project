@@ -3,8 +3,10 @@ package org.danielcastillo.backend.application.interactors;
 import org.danielcastillo.backend.application.PersonRepository;
 import org.danielcastillo.backend.application.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class DestroyPerson {
     @Autowired
     private PersonRepository personRepository;

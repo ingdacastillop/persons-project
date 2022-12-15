@@ -29,3 +29,19 @@
     box-sizing: border-box;
   }
 }
+
+@media screen and (max-width: 840px) {
+  .app-root {
+    &_persons {
+      width: 60%;
+
+      card-person {
+        width: 50%;
+      }
+    }
+
+    &_form {
+      width: 40%;
+    }
+  }
+}

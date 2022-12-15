@@ -35,6 +35,7 @@ public class UpdatePerson {
         personJpa.phone = personDTO.phone;
         personJpa.email = personDTO.email;
         personJpa.sex = personDTO.sex;
+        personJpa.hobbies = personDTO.hobbies;
         personJpa.birthday = personDTO.birthday;
 
         String fullName = personJpa.firstName + " " + personJpa.lastName;

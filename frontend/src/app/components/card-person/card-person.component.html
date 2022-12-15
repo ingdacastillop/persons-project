@@ -1,11 +1,17 @@
 <div class="card-person_content">
-  <label class="card-person_title body1-medium" (click)="onSelect()">
-    {{ person?.fullName }}
-  </label>
-  <label class="card-person_subtitle subtitle1-regular">
-    {{ person?.dni }}
-  </label>
-  <label class="card-person_detail smalltext-regular">
-    {{ person?.email }}
-  </label>
+  <div class="card-person_data">
+    <label class="card-person_title body1-medium" (click)="onSelect()">
+      {{ person?.fullName }}
+    </label>
+    <label class="card-person_subtitle subtitle1-regular">
+      {{ person?.dni }}
+    </label>
+    <label class="card-person_detail smalltext-regular">
+      {{ person?.email }}
+    </label>
+  </div>
+
+  <div class="card-person_action">
+    <xft-icon value="trash" (click)="onDestroy()"></xft-icon>
+  </div>
 </div>

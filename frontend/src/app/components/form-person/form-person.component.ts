@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { SnackbarComponentService } from '@xofttion-enterprise/angular-components';
 import { Person } from '../../domain/person';
 import { PersonRepositoty } from '../../infrastructure/person.repository';
+import { sexsElement } from '../sex-element';
 import { FormPersonControl } from './form-person.control';
 
 const YEAR_TIMESTAMP = 1000 * 60 * 60 * 24 * 365 * 18;
@@ -16,6 +17,8 @@ export class FormPersonComponent {
   public formControl: FormPersonControl;
 
   public person?: Person;
+
+  public sexs = sexsElement;
 
   constructor(
     private repository: PersonRepositoty,
