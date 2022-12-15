@@ -7,6 +7,13 @@ import java.time.LocalDate;
 @Service
 public class CheckBirthdayPerson {
     public boolean execute(LocalDate birthday) {
-        return true;
+        int birthdayYear = birthday.getYear();
+        int currentYear = LocalDate.now().getYear();
+
+        int differenceYear = currentYear - birthdayYear;
+
+        System.out.println(differenceYear);
+
+        return differenceYear >= 18 && differenceYear <= 80;
     }
 }
