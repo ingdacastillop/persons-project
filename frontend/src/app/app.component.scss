@@ -3,7 +3,29 @@
     position: relative;
     float: left;
     width: 100%;
-    padding: var(--size-16);
+    padding: var(--size-12) var(--size-8);
+    box-sizing: border-box;
+  }
+
+  &_persons {
+    position: relative;
+    float: left;
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+
+    card-person {
+      padding: var(--size-8);
+      box-sizing: border-box;
+      width: 33.33%;
+    }
+  }
+
+  &_form {
+    position: relative;
+    float: left;
+    width: 30%;
+    padding: 0rem var(--size-8);
     box-sizing: border-box;
   }
 }
