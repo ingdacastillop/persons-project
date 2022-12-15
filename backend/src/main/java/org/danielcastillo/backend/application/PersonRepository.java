@@ -9,4 +9,5 @@ public interface PersonRepository {
     void persist(PersonJpa personJpa);
     List<PersonJpa> getAll();
     Optional<PersonJpa> findByUuid(String uuid);
+    void destroy(PersonJpa person);
 }

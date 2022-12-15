@@ -33,4 +33,8 @@ public class MySqlPersonRepository implements PersonRepository {
 
         return result.isEmpty() ? Optional.empty() : Optional.of((PersonJpa) result.get(0));
     }
+
+    public void destroy(PersonJpa person) {
+        entityManager.remove(person);
+    }
 }
