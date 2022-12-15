@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {
   ButtonComponentModule,
   DateFieldComponentModule,
+  SelectFieldComponentModule,
   SnackbarComponentModule,
   TextFieldComponentModule,
   ThemeDirectiveModule,
@@ -18,6 +19,7 @@ import { FormPersonComponent } from './form-person.component';
     TextFieldComponentModule,
     DateFieldComponentModule,
     SnackbarComponentModule,
+    SelectFieldComponentModule,
     ThemeDirectiveModule,
   ],
   declarations: [FormPersonComponent],

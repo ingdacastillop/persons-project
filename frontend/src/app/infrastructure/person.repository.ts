@@ -74,6 +74,24 @@ export class PersonRepositoty {
     );
   }
 
+  public async destroy(person: Person): Promise<Response> {
+    return await firstValueFrom(
+      this.http.delete<Response>(`${API_PERSONS}/${person.uuid}`).pipe(
+        tap((response) => {
+          if (response.success && response.data && this.persons) {
+            const index = this.persons.findIndex((currentPerson) => {
+              return currentPerson.uuid === person.uuid;
+            });
+
+            this.persons.splice(index, 1);
+
+            this.persons$.next([...this.persons]);
+          }
+        })
+      )
+    );
+  }
+
   public select(person: Person): void {
     if (this._selectPerson) {
       this._selectPerson(person);
