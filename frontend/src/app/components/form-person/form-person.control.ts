@@ -48,9 +48,20 @@ export class FormPersonControl extends FormGroup {
     return this.get('birthday') as FormControl;
   }
 
-  public createPerson(): Person {
+  public changePerson(person: Person): void {
+    this.dni.setValue(person.dni);
+    this.firstName.setValue(person.firstName);
+    this.lastName.setValue(person.lastName);
+    this.address.setValue(person.address);
+    this.phone.setValue(person.phone);
+    this.email.setValue(person.email);
+    this.hobbies.setValue(person.hobbies);
+    this.birthday.setValue(person.birthday);
+  }
+
+  public createPerson(person?: Person): Person {
     return new Person(
-      '',
+      person?.uuid || '',
       this.dni.value,
       this.firstName.value,
       this.lastName.value,

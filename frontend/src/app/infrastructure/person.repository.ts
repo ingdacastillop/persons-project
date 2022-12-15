@@ -17,6 +17,8 @@ export class PersonRepositoty {
 
   private persons?: Person[];
 
+  private _selectPerson?: (person: Person) => void;
+
   constructor(private http: HttpClient) {
     this.persons$ = new BehaviorSubject([] as Person[]);
   }
@@ -52,10 +54,33 @@ export class PersonRepositoty {
 
   public async update(person: Person): Promise<Response> {
     return await firstValueFrom(
-      this.http.post<Response>(
-        `${API_PERSONS}/${person.uuid}`,
-        exportPerson(person)
-      )
+      this.http
+        .put<Response>(`${API_PERSONS}/${person.uuid}`, exportPerson(person))
+        .pipe(
+          tap((response) => {
+            if (response.success && response.data && this.persons) {
+              const person = createPerson(response.data);
+
+              const index = this.persons.findIndex((currentPerson) => {
+                return currentPerson.uuid === person.uuid;
+              });
+
+              this.persons[index] = person;
+
+              this.persons$.next([...this.persons]);
+            }
+          })
+        )
     );
+  }
+
+  public select(person: Person): void {
+    if (this._selectPerson) {
+      this._selectPerson(person);
+    }
+  }
+
+  public subscribe(selectPerson: (person: Person) => void): void {
+    this._selectPerson = selectPerson;
   }
 }

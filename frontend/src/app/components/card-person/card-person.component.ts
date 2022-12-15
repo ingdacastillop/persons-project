@@ -1,4 +1,5 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { PersonRepositoty } from 'src/app/infrastructure/person.repository';
 import { Person } from '../../domain/person';
 
 @Component({
@@ -10,4 +11,12 @@ import { Person } from '../../domain/person';
 export class CardPersonComponent {
   @Input()
   public person?: Person;
+
+  constructor(private repository: PersonRepositoty) {}
+
+  public onSelect(): void {
+    if (this.person) {
+      this.repository.select(this.person);
+    }
+  }
 }
